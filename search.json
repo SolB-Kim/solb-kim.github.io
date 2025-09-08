@@ -2,15 +2,50 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "SolBee Kim",
+    "title": "Coursework of 2025 Fall",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\nplot(iris, pch=20, cex= .8, col=\"skyblue\")"
+    "text": "This homepage is for 2025 Fall - [EPPS 6302] Methods of Data Collection and Production\n\nThis website is created using RStudio Quarto. To learn more about Quarto websites visit https://quarto.org/docs/websites.\n© 2025 . All rights reserved."
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About Me",
     "section": "",
-    "text": "About Me\n\n1 + 1\n\n[1] 2"
+    "text": "Solbee Kim\nDoctoral student in Public Affairs at the University of Texas at Dallas.\n\n\n\n※ CV updated in September 2025.\n\n\n\nUniversity of Delaware Delaware, U.S.\nMaster of Public Policy 2025\n- Thesis: “Why do governments adopt (or abandon) gender-responsive budgeting? The case of Australia.” (Advisor: Jonathan B. Justice)\nChung-Ang University Seoul, South Korea\nMaster of Public Administration 2018\n- Thesis: “Influencing elements of trust in government.” (Advisor: Sunghan Cho)\n- Graduate Assistant Scholarship, 2016 – 2017 \nBachelor of Public Policy 2016\n\n\n\n\nResearch Assistant Jan 2023 – Dec 2024\nUniversity of Delaware Delaware, U.S.\n- Conducted research on gender-responsive budgeting under the advisement of Dr. Justice.\n- Performed comprehensive literature reviews, sourced relevant data, and carried out both qualitative and quantitative analyses. - Facilitated interviews, synthesized findings, and prepared materials for academic conferences (ABFM 2023 & 2024).\n- Currently developing thesis and journal article manuscripts based on ongoing research outcomes.\nTeaching Assistant August 2023 – Dec 2023\nUniversity of Delaware Delaware, U.S.\n- Assisted Dr. Elizabeth Fournier with [HLPR/UAPP 211] Introduction to Public Health,\n- Graded and evaluated student assignments, providing detailed feedback and comments, supported in-class group activities, offering guidance and clarifying course content, held office hours to address student questions, review course materials, and provide additional support.\nGraduate Assistant August 2022 – Jan 2023\nUniversity of Delaware Delaware, U.S.\n- Contributed to the development and implementation of the Biden School’s annual survey, sourced information, conducted background research, and crafted survey questions and formats.\nResearch Assistant Jan – Oct 2021\nKorea Institute of Public Administration Seoul, South Korea\n- Sourcing information, data analysis, editing articles, supporting interviews, seminars and meetings.\nResearch Assistant Apr – Jul 2019\nKorea Institute of Public Administration Seoul, South Korea\n- Sourcing information, data collection and analysis, supporting seminars and meetings.\nResearcher Feb 2019\nArchitecture & Urban Research Institute Sejong, South Korea\n- Investigation of research ethics in annual publications.\nResearcher Dec 2018\nKorean Women’s Development Institute Seoul, South Korea\n- Investigation of research ethics in annual publications.\nResearcher Nov 2018\nKorea Institute of Public Administration Seoul, South Korea\n- Investigation of research ethics in annual publications.\nResearch Assistant Jul – Aug 2017\nKorea Institute of Public Administration Seoul, South Korea\n- Making educational content and PowerPoint presentations for Rwanda’s public officers.\nResearch Assistant Jul – Dec 2017\nKorea Forest Service Daejeon, South Korea\n- Evaluated agency’s annual performance.\nResearch Assistant Aug 2017\nKorea Research Institute for Local Administration Wonju-si, Gangwon-do, South Korea\n- Designed and visualized framework of public organizations.\nResearch Assistant Jul – Oct 2017\nKorea Radio Promotion Association Seoul, South Korea\n- Researched to resolve fringe areas in South Korea.\nResearch Assistant May – Aug 2017\nNational Research Council of Economics, Humanities and Social Sciences Sejong, South Korea\n- Investigation of research ethics in annual publications.\n\n\n\n\n“Why do governments adopt (or abandon) gender-responsive budgeting? The case of Australia,”\nAssociation for Budgeting and Financial Management (ABFM), Cleveland, OH, 2024\n“Why do governments adopt (or abandon) gender-responsive budgeting? The case of Australia,”\n2024 Public Finance and Budgeting Northeastern Workshop, Newark, NJ, 2024\n“Gender-Responsive Budgeting Themes and Variation,”\nAssociation for Budgeting and Financial Management (ABFM), Denver, CO, 2023\n“Government trust in South Korea, 2013 – 2016,”\nSino-US International Conference for Public Administration, Beijing, China, 2018.\n\n\n\n\nLanguage Skills: Korean (Native), English (IELTS Band 7; CEFR C1)\nIT Skills: R, SPSS, Microsoft Office Suite, AMOS"
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About Me",
+    "section": "EDUCATION",
+    "text": "EDUCATION\nUniversity of Delaware (Delaware, U.S.)\nMaster of Public Policy 2025\n- Thesis: “Why do governments adopt (or abandon) gender-responsive budgeting? The case of Australia.” (Advisor: Jonathan B. Justice)\nChung-Ang University (Seoul, South Korea)\nMaster of Public Administration 2018\n- Thesis: “Influencing elements of trust in government.” (Advisor: Sunghan Cho)\n- Graduate Assistant Scholarship, 2016 – 2017 \nBachelor of Public Policy 2016"
+  },
+  {
+    "objectID": "about.html#research-teaching-experience",
+    "href": "about.html#research-teaching-experience",
+    "title": "About Me",
+    "section": "RESEARCH & TEACHING EXPERIENCE",
+    "text": "RESEARCH & TEACHING EXPERIENCE\nResearch Assistant Jan 2023 – Dec 2024\nUniversity of Delaware (Delaware, U.S.)\n- Conducted research on gender-responsive budgeting under the advisement of Dr. Justice.\n- Performed comprehensive literature reviews, sourced relevant data, and carried out both qualitative and quantitative analyses. - Facilitated interviews, synthesized findings, and prepared materials for academic conferences (ABFM 2023 & 2024).\n- Currently developing thesis and journal article manuscripts based on ongoing research outcomes.\nTeaching Assistant August 2023 – Dec 2023\nUniversity of Delaware (Delaware, U.S.)\n- Assisted Dr. Elizabeth Fournier with [HLPR/UAPP 211] Introduction to Public Health,\n- Graded and evaluated student assignments, providing detailed feedback and comments, supported in-class group activities, offering guidance and clarifying course content, held office hours to address student questions, review course materials, and provide additional support.\nGraduate Assistant August 2022 – Jan 2023\nUniversity of Delaware (Delaware, U.S.)\n- Contributed to the development and implementation of the Biden School’s annual survey, sourced information, conducted background research, and crafted survey questions and formats.\nResearch Assistant Jan – Oct 2021\nKorea Institute of Public Administration (Seoul, South Korea)\n- Sourcing information, data analysis, editing articles, supporting interviews, seminars and meetings.\nResearch Assistant Apr – Jul 2019\nKorea Institute of Public Administration (Seoul, South Korea)\n- Sourcing information, data collection and analysis, supporting seminars and meetings.\nResearcher Feb 2019\nArchitecture & Urban Research Institute (Sejong, South Korea)\n- Investigation of research ethics in annual publications.\nResearcher Dec 2018\nKorean Women’s Development Institute (Seoul, South Korea)\n- Investigation of research ethics in annual publications.\nResearcher Nov 2018\nKorea Institute of Public Administration (Seoul, South Korea)\n- Investigation of research ethics in annual publications.\nResearch Assistant Jul – Aug 2017\nKorea Institute of Public Administration (Seoul, South Korea)\n- Making educational content and PowerPoint presentations for Rwanda’s public officers.\nResearch Assistant Jul – Dec 2017\nKorea Forest Service (Daejeon, South Korea)\n- Evaluated agency’s annual performance.\nResearch Assistant Aug 2017\nKorea Research Institute for Local Administration (Wonju-si, Gangwon-do, South Korea)\n- Designed and visualized framework of public organizations.\nResearch Assistant Jul – Oct 2017\nKorea Radio Promotion Association (Seoul, South Korea)\n- Researched to resolve fringe areas in South Korea.\nResearch Assistant May – Aug 2017\nNational Research Council of Economics, Humanities and Social Sciences (Sejong, South Korea)\n- Investigation of research ethics in annual publications."
+  },
+  {
+    "objectID": "about.html#presentation",
+    "href": "about.html#presentation",
+    "title": "About Me",
+    "section": "PRESENTATION",
+    "text": "PRESENTATION\n“Why do governments adopt (or abandon) gender-responsive budgeting? The case of Australia,”\nAssociation for Budgeting and Financial Management (ABFM), Cleveland, OH, 2024\n“Why do governments adopt (or abandon) gender-responsive budgeting? The case of Australia,”\n2024 Public Finance and Budgeting Northeastern Workshop, Newark, NJ, 2024\n“Gender-Responsive Budgeting Themes and Variation,”\nAssociation for Budgeting and Financial Management (ABFM), Denver, CO, 2023\n“Government trust in South Korea, 2013 – 2016,”\nSino-US International Conference for Public Administration, Beijing, China, 2018."
+  },
+  {
+    "objectID": "about.html#competencies-interests",
+    "href": "about.html#competencies-interests",
+    "title": "About Me",
+    "section": "COMPETENCIES & INTERESTS",
+    "text": "COMPETENCIES & INTERESTS\nLanguage Skills: Korean (Native), English (IELTS Band 7; CEFR C1)\nIT Skills: R, SPSS, Microsoft Office Suite, AMOS"
+  },
+  {
+    "objectID": "assignments/assign01.html",
+    "href": "assignments/assign01.html",
+    "title": "Assignment 01 (09.08.2025)",
+    "section": "",
+    "text": "Draw a plot graph\n\n\nplot(iris, pch=20, cex= .8, col=\"skyblue\")\n\n\n\n\n\n\n\n\n\nIncluded my CV at About Me menu"
   }
 ]
