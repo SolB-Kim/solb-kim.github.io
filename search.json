@@ -46,6 +46,6 @@
     "href": "assignments/assign01.html",
     "title": "Assignment 01 (09.08.2025)",
     "section": "",
-    "text": "Draw a plot graph\n\n\nplot(iris, pch=20, cex= .8, col=\"skyblue\")\n\n\n\n\n\n\n\n\n\nIncluded my CV at About Me menu"
+    "text": "Draw a plot graph in class (09.01.2025)\n\n\nplot(iris, pch=20, cex= .8, col=\"skyblue\")\n\n\n\n\n\n\n\n\n\nIncluded my CV at About Me page."
   }
 ]
