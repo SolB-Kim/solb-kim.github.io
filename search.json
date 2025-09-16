@@ -60,6 +60,6 @@
     "href": "assignments/assign02.html#codes",
     "title": "Assignment 2",
     "section": "Codes",
-    "text": "Codes\n\nTrouble shooting\n\nlibrary(httr)\nset_config(user_agent(\"Mozilla/5.0\"))\n\n\n\n\n\nTrump & Harris Election data\nMy chunk is still being blocked by Google.\n\n\nlibrary(gtrendsR)"
+    "text": "Codes\n\nTrouble shooting\nI set the code: {r, error=TRUE}\nThis pushes Quarto: “Even if there’s an error in this chunk, keep rendering the document.”\n\n\n\n\nTrump & Harris Election data\nMy gtrendsR() chunk is currently being blocked by Google Trends and may not display data.\n\nlibrary(gtrendsR)\nTrumpHarrisElection = gtrends(c(\"Trump\",\"Harris\",\"election\"), onlyInterest = TRUE, geo = \"US\", \n                              gprop = \"web\", time = \"today+5-y\", category = 0) # last five years\n\nError in get_widget(comparison_item, category, gprop, hl, cookie_url, : widget$status_code == 200 is not TRUE\n\nthe_df=TrumpHarrisElection$interest_over_time\n\nError: object 'TrumpHarrisElection' not found\n\nplot(TrumpHarrisElection)\n\nError: object 'TrumpHarrisElection' not found\n\ntg = gtrends(\"tariff\", time = \"all\")\n\nError in get_widget(comparison_item, category, gprop, hl, cookie_url, : widget$status_code == 200 is not TRUE"
   }
 ]
