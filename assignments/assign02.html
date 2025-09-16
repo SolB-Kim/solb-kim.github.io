@@ -164,7 +164,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#google-trends-with-r" id="toc-google-trends-with-r" class="nav-link active" data-scroll-target="#google-trends-with-r">Google Trends with R</a></li>
-  <li><a href="#codes" id="toc-codes" class="nav-link" data-scroll-target="#codes">Codes</a></li>
+  <li><a href="#codes" id="toc-codes" class="nav-link" data-scroll-target="#codes">Codes</a>
+  <ul class="collapse">
+  <li><a href="#trouble-shooting" id="toc-trouble-shooting" class="nav-link" data-scroll-target="#trouble-shooting">Trouble shooting</a></li>
+  <li><a href="#trump-harris-election-data" id="toc-trump-harris-election-data" class="nav-link" data-scroll-target="#trump-harris-election-data">Trump &amp; Harris Election data</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -207,36 +211,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Google Trends data</strong><br>
 1. Use Google Trends website (https://trends.google.com/home)<br>
 2. Use gtrendsR package to collect data (use gtrendsR01.R program)<br>
-</p>
-<p><br>
+<br>
 <br>
 </p>
 </section>
 <section id="codes" class="level2">
 <h2 class="anchored" data-anchor-id="codes">Codes</h2>
+<section id="trouble-shooting" class="level3">
+<h3 class="anchored" data-anchor-id="trouble-shooting">Trouble shooting</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtrendsR)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>TrumpHarrisElection <span class="ot">=</span> <span class="fu">gtrends</span>(<span class="fu">c</span>(<span class="st">"Trump"</span>,<span class="st">"Harris"</span>,<span class="st">"election"</span>), <span class="at">onlyInterest =</span> <span class="cn">TRUE</span>, <span class="at">geo =</span> <span class="st">"US"</span>, <span class="at">gprop =</span> <span class="st">"web"</span>, <span class="at">time =</span> <span class="st">"today+5-y"</span>, <span class="at">category =</span> <span class="dv">0</span>) <span class="co"># last five years</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>the_df<span class="ot">=</span>TrumpHarrisElection<span class="sc">$</span>interest_over_time</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(TrumpHarrisElection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: `aes_string()` was deprecated in ggplot2 3.0.0.
-ℹ Please use tidy evaluation idioms with `aes()`.
-ℹ See also `vignette("ggplot2-in-packages")` for more information.
-ℹ The deprecated feature was likely used in the gtrendsR package.
-  Please report the issue at &lt;https://github.com/PMassicotte/gtrendsR/issues&gt;.</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set_config</span>(<span class="fu">user_agent</span>(<span class="st">"Mozilla/5.0"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="assign02_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tg <span class="ot">=</span> <span class="fu">gtrends</span>(<span class="st">"tariff"</span>, <span class="at">time =</span> <span class="st">"all"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br>
+</p>
+</section>
+<section id="trump-harris-election-data" class="level3">
+<h3 class="anchored" data-anchor-id="trump-harris-election-data">Trump &amp; Harris Election data</h3>
+<p>My chunk is still being blocked by Google.<br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtrendsR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
