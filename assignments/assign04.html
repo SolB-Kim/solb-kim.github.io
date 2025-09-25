@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Solbee Kim">
+<meta name="dcterms.date" content="2025-09-25">
 
 <title>Assignment 04 – SolBee Kim</title>
 <style>
@@ -20,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -136,7 +171,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#working-on-it" id="toc-working-on-it" class="nav-link active" data-scroll-target="#working-on-it">Working on it!</a></li>
+  <li><a href="#webscraping-1" id="toc-webscraping-1" class="nav-link active" data-scroll-target="#webscraping-1">Webscraping 1</a>
+  <ul class="collapse">
+  <li><a href="#modify-the-program" id="toc-modify-the-program" class="nav-link" data-scroll-target="#modify-the-program">Modify the program</a></li>
+  <li><a href="#scrape-other-tables-in-wikipedia" id="toc-scrape-other-tables-in-wikipedia" class="nav-link" data-scroll-target="#scrape-other-tables-in-wikipedia">Scrape other tables in Wikipedia</a></li>
+  <li><a href="#dataframe" id="toc-dataframe" class="nav-link" data-scroll-target="#dataframe">Dataframe</a></li>
+  <li><a href="#suggest-a-data-plan" id="toc-suggest-a-data-plan" class="nav-link" data-scroll-target="#suggest-a-data-plan">Suggest a data plan</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -162,7 +203,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Invalid Date</p>
+      <p class="date">September 25, 2025</p>
     </div>
   </div>
   
@@ -174,10 +215,282 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="working-on-it" class="level2">
-<h2 class="anchored" data-anchor-id="working-on-it">Working on it!</h2>
+<section id="webscraping-1" class="level2">
+<h2 class="anchored" data-anchor-id="webscraping-1">Webscraping 1</h2>
+<p>Scraping Foreign reserve data from Wikipedia</p>
+<p><br>
+</p>
+<section id="modify-the-program" class="level3">
+<h3 class="anchored" data-anchor-id="modify-the-program">Modify the program</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   4.0.0     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.1.0     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">'https://en.wikipedia.org/wiki/List_of_countries_by_foreign-exchange_reserves'</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Reading the HTML code from the Wiki website</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>wikiforreserve <span class="ot">&lt;-</span> <span class="fu">read_html</span>(url)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(wikiforreserve)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "xml_document" "xml_node"    </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Grab ALL tables on the page</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>tables <span class="ot">&lt;-</span> wikiforreserve <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">"table"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_table</span>(<span class="at">fill =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(tables)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+<p><br>
+</p>
+</section>
+<section id="scrape-other-tables-in-wikipedia" class="level3">
+<h3 class="anchored" data-anchor-id="scrape-other-tables-in-wikipedia">Scrape other tables in Wikipedia</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gender Inequality Index (GII) data</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Input the url</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>gii_url <span class="ot">&lt;-</span> <span class="st">"https://en.wikipedia.org/wiki/Gender_Inequality_Index"</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>gii <span class="ot">&lt;-</span> <span class="fu">read_html</span>(gii_url)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check tables</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>gii_tables <span class="ot">&lt;-</span> gii <span class="sc">%&gt;%</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">"table"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_table</span>(<span class="at">fill =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(gii_tables)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modification</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>gii_total <span class="ot">&lt;-</span> gii_tables[[<span class="dv">2</span>]]</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gii_total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  `GII Rank` `HDI Rank` Country     `GII Value`
+       &lt;int&gt;      &lt;int&gt; &lt;chr&gt;             &lt;dbl&gt;
+1          1          2 Switzerland       0.025
+2          2          1 Norway            0.038
+3          3         11 Finland           0.039
+4          4          8 Netherlands       0.043
+5          4         10 Denmark           0.043
+6          6          7 Sweden            0.045</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>gii_top <span class="ot">&lt;-</span> gii_tables[[<span class="dv">3</span>]]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gii_top)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 9
+  Country     `GII Rank\n(GII value) 2018` `GII Rank 2012` `GII Value 2012`
+  &lt;chr&gt;       &lt;chr&gt;                                  &lt;int&gt;            &lt;dbl&gt;
+1 Netherlands 4 (0.041)                                  1            0.045
+2 Sweden      2 (0.040)                                  2            0.055
+3 Denmark     2 (0.040)                                  3            0.057
+4 Switzerland 1 (0.037)                                  4            0.057
+5 Norway      5 (0.044)                                  5            0.065
+6 Finland     7 (0.050)                                  6            0.075
+# ℹ 5 more variables: `HDI Rank 2012` &lt;chr&gt;, `GII Rank 2011` &lt;chr&gt;,
+#   `GII Value 2011` &lt;chr&gt;, `GII Rank 2008` &lt;chr&gt;, `GII Value 2008` &lt;chr&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>gii_btm <span class="ot">&lt;-</span> gii_tables[[<span class="dv">5</span>]]</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gii_btm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+  Country                GII Rank\n(GII value…¹ `GII Value 2012` `HDI Rank 2012`
+  &lt;chr&gt;                  &lt;chr&gt;                             &lt;dbl&gt;           &lt;int&gt;
+1 Yemen                  162 (0.834)                       0.823             160
+2 Afghanistan            143 (0.575)                       0.712             175
+3 Niger                  154 (0.647)                       0.707             186
+4 Congo                  156 (0.655)                       0.681             186
+5 Liberia                155 (0.651)                       0.658             174
+6 Central African Repub… 159 (0.682)                       0.654             180
+# ℹ abbreviated name: ¹​`GII Rank\n(GII value) 2018`
+# ℹ 4 more variables: `GII Rank 2011` &lt;chr&gt;, `GII Value 2011` &lt;chr&gt;,
+#   `GII Rank 2008` &lt;chr&gt;, `GII Value 2008` &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p><br>
+</p>
+</section>
+<section id="dataframe" class="level3">
+<h3 class="anchored" data-anchor-id="dataframe">Dataframe</h3>
+<p><strong>1. Original Full List</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking the table</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(gii_total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "GII Rank"  "HDI Rank"  "Country"   "GII Value"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean up the GII Table</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>gii_total_clean <span class="ot">&lt;-</span> gii_total <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(<span class="st">`</span><span class="at">GII Rank</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">gii_rank =</span> <span class="fu">as.integer</span>(<span class="st">`</span><span class="at">GII Rank</span><span class="st">`</span>),</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">hdi_rank =</span> <span class="fu">as.integer</span>(<span class="st">`</span><span class="at">HDI Rank</span><span class="st">`</span>),</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">country  =</span> <span class="fu">as.character</span>(Country),</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">gii_value =</span> <span class="fu">as.numeric</span>(<span class="st">`</span><span class="at">GII Value</span><span class="st">`</span>)  ) <span class="sc">%&gt;%</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(gii_rank, hdi_rank, country, gii_value)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>gii_total_clean <span class="ot">&lt;-</span> gii_total_clean <span class="sc">%&gt;%</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">data_year =</span> <span class="dv">2019</span>)</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gii_total_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+  gii_rank hdi_rank country     gii_value data_year
+     &lt;int&gt;    &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;
+1        1        2 Switzerland     0.025      2019
+2        2        1 Norway          0.038      2019
+3        3       11 Finland         0.039      2019
+4        4        8 Netherlands     0.043      2019
+5        4       10 Denmark         0.043      2019
+6        6        7 Sweden          0.045      2019</code></pre>
+</div>
+</div>
+<p>Note: The Gender Inequality Index (GII) values used in this analysis are from the 2019 dataset, as reported on Wikipedia.</p>
+<p><br>
+</p>
+<p><strong>2. GII Top-10 Countries</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean up the GII Top-10 Countries Table</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(gii_top)                        <span class="co"># Check the variables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Country"                    "GII Rank\n(GII value) 2018"
+[3] "GII Rank 2012"              "GII Value 2012"            
+[5] "HDI Rank 2012"              "GII Rank 2011"             
+[7] "GII Value 2011"             "GII Rank 2008"             
+[9] "GII Value 2008"            </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(gii_top)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"gii_2018_raw"</span>      <span class="co"># Renaming</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(gii_top)[<span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="st">"gii_2012"</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(gii_top)[<span class="dv">9</span>] <span class="ot">&lt;-</span> <span class="st">"gii_2008"</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>gii_top_clean <span class="ot">&lt;-</span> gii_top <span class="sc">%&gt;%</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">country =</span> Country, gii_2018_raw, gii_2012, gii_2008) <span class="sc">%&gt;%</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">gii_2018 =</span> <span class="fu">str_extract</span>(gii_2018_raw, <span class="st">"</span><span class="sc">\\</span><span class="st">((.*?)</span><span class="sc">\\</span><span class="st">)"</span>),</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">gii_2018 =</span> <span class="fu">str_remove_all</span>(gii_2018, <span class="st">"[()]"</span>),</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">gii_2018 =</span> <span class="fu">as.numeric</span>(gii_2018),</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">gii_2012 =</span> <span class="fu">as.numeric</span>(gii_2012),</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">gii_2008 =</span> <span class="fu">as.numeric</span>(gii_2008)  ) <span class="sc">%&gt;%</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, gii_2018, gii_2012, gii_2008) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There was 1 warning in `mutate()`.
+ℹ In argument: `gii_2008 = as.numeric(gii_2008)`.
+Caused by warning:
+! NAs introduced by coercion</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gii_top_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country     gii_2018 gii_2012 gii_2008
+  &lt;chr&gt;          &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+1 Netherlands    0.041    0.045    0.174
+2 Sweden         0.04     0.055    0.212
+3 Denmark        0.04     0.057    0.209
+4 Switzerland    0.037    0.057    0.228
+5 Norway         0.044    0.065    0.234
+6 Finland        0.05     0.075    0.248</code></pre>
+</div>
+</div>
+<p>Note: The Gender Inequality Index (GII) values used in this analysis are from the 2018 dataset, as reported on Wikipedia.</p>
+<p><strong>3. GII Bottom-10 Countries</strong>**</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean up the GII Bottom-10 Countries Table</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(gii_btm)                        <span class="co"># Check the variables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Country"                    "GII Rank\n(GII value) 2018"
+[3] "GII Value 2012"             "HDI Rank 2012"             
+[5] "GII Rank 2011"              "GII Value 2011"            
+[7] "GII Rank 2008"              "GII Value 2008"            </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(gii_btm)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"gii_2018_raw"</span>      <span class="co"># Renaming</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(gii_btm)[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="st">"gii_2012_value"</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(gii_btm)[<span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="st">"hdi_rank_2012"</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(gii_btm)[<span class="dv">8</span>] <span class="ot">&lt;-</span> <span class="st">"gii_2008"</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>gii_btm_clean <span class="ot">&lt;-</span> gii_btm <span class="sc">%&gt;%</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">country =</span> Country, gii_2018_raw, <span class="at">gii_2012 =</span> gii_2012_value, gii_2008) <span class="sc">%&gt;%</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">gii_2018 =</span> <span class="fu">str_extract</span>(gii_2018_raw, <span class="st">"</span><span class="sc">\\</span><span class="st">((.*?)</span><span class="sc">\\</span><span class="st">)"</span>),</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">gii_2018 =</span> <span class="fu">str_remove_all</span>(gii_2018, <span class="st">"[()]"</span>),</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">gii_2018 =</span> <span class="fu">as.numeric</span>(gii_2018),</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">gii_2012 =</span> <span class="fu">as.numeric</span>(gii_2012),</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">gii_2008 =</span> <span class="fu">as.numeric</span>(gii_2008)  ) <span class="sc">%&gt;%</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, gii_2018, gii_2012, gii_2008)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There was 1 warning in `mutate()`.
+ℹ In argument: `gii_2008 = as.numeric(gii_2008)`.
+Caused by warning:
+! NAs introduced by coercion</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gii_btm_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country                  gii_2018 gii_2012 gii_2008
+  &lt;chr&gt;                       &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+1 Yemen                       0.834    0.823   NA    
+2 Afghanistan                 0.575    0.712    0.797
+3 Niger                       0.647    0.707    0.807
+4 Congo                       0.655    0.681    0.814
+5 Liberia                     0.651    0.658    0.766
+6 Central African Republic    0.682    0.654    0.768</code></pre>
+</div>
+</div>
+<p>Note: The Gender Inequality Index (GII) values used in this analysis are from the 2018 dataset, as reported on Wikipedia.</p>
+<p><br>
+</p>
+</section>
+<section id="suggest-a-data-plan" class="level3">
+<h3 class="anchored" data-anchor-id="suggest-a-data-plan">Suggest a data plan</h3>
+<p><strong>1. Source Identification</strong><br>
+- Wikipedia: Gender Inequality Index (GII)<br>
+- Additional datasets: GDP, education (World Bank, UNDP, Gapminder, UNWOMEN, etc.)</p>
+<p><strong>2. Web Scraping Tools</strong><br>
+- R packages: rvest for scraping, tidyverse for cleaning<br>
+- html_nodes() and html_table() to extract HTML tables</p>
+<p><strong>3. Cleaning Strategy</strong><br>
+- Remove headers/footers<br>
+- Convert ranks and values to numeric<br>
+- Filter missing values</p>
+<p><strong>4. Analysis Plan</strong><br>
+- Compare gender inequality by region<br>
+- Visualize GII vs GDP/education<br>
+- Highlight top/bottom ranked countries</p>
+<p><strong>5. Ethical Considerations</strong><br>
+- Use public data only<br>
+- Document scraping code and source URLs</p>
+<p><br>
+<br>
+</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
