@@ -157,6 +157,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../assignments/assign05.html">
  <span class="dropdown-text">Assignment 05</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../assignments/assign06.html">
+ <span class="dropdown-text">Assignment 06</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../assignments/assign07.qmd">
+ <span class="dropdown-text"></span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -231,7 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Government data API</h1>
 <section id="search-government-documents" class="level2">
 <h2 class="anchored" data-anchor-id="search-government-documents">1. Search government documents</h2>
-<p><strong>Website</strong> <govinfo> https://www.govinfo.gov/app/search/</govinfo></p>
+<p><strong>Website</strong> GovInfo: https://www.govinfo.gov/app/search/</p>
 <p><br>
 <br>
 </p>
@@ -242,8 +250,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>(<span class="at">reset =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger (Mb) max used (Mb)
-Ncells  600983 32.1    1366060   73   600983 32.1
-Vcells 1092482  8.4    8388608   64  1092482  8.4</code></pre>
+Ncells  600986 32.1    1366068   73   600986 32.1
+Vcells 1092529  8.4    8388608   64  1092529  8.4</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
@@ -393,69 +401,51 @@ Attaching package: 'dplyr'</code></pre>
 <pre><code>Starting downloads</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1</span> <span class="sc">%&gt;%</span> </span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">map_chr</span>(<span class="sc">~</span> <span class="fu">download_govfiles_pdf</span>(pdf_govfiles_url[.], pdf_govfiles_id[.]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in download.file(url, destfile = destfile, mode = "wb"): cannot open
-URL
-'https://www.govinfo.gov/content/pkg/BILLS-118sres890is/pdf/BILLS-118sres890is.pdf':
-HTTP status was '503 Service Unavailable'</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Finished downloads"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">map_chr</span>(<span class="sc">~</span> <span class="fu">download_govfiles_pdf</span>(pdf_govfiles_url[.], pdf_govfiles_id[.]))</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Finished downloads"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Finished downloads</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>end.time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>time.taken <span class="ot">&lt;-</span> end.time <span class="sc">-</span> start.time</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>time.taken</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>end.time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>time.taken <span class="ot">&lt;-</span> end.time <span class="sc">-</span> start.time</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>time.taken</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 0.14693 secs</code></pre>
+<pre><code>Time difference of 3.075124 secs</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ten documents</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>start.time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Starting downloads"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ten documents</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>start.time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Starting downloads"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Starting downloads</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">%&gt;%</span> </span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">map_chr</span>(<span class="sc">~</span> <span class="fu">download_govfiles_pdf</span>(pdf_govfiles_url[.], pdf_govfiles_id[.]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">%&gt;%</span> </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">map_chr</span>(<span class="sc">~</span> <span class="fu">download_govfiles_pdf</span>(pdf_govfiles_url[.], pdf_govfiles_id[.]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in download.file(url, destfile = destfile, mode = "wb"): cannot open
 URL
 'https://www.govinfo.gov/content/pkg/BILLS-118sres890is/pdf/BILLS-118sres890is.pdf':
 HTTP status was '503 Service Unavailable'</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in download.file(url, destfile = destfile, mode = "wb"): cannot open
-URL
-'https://www.govinfo.gov/content/pkg/BILLS-118sjres115is/pdf/BILLS-118sjres115is.pdf':
-HTTP status was '503 Service Unavailable'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in download.file(url, destfile = destfile, mode = "wb"): cannot open
-URL
-'https://www.govinfo.gov/content/pkg/BILLS-118sjres112is/pdf/BILLS-118sjres112is.pdf':
-HTTP status was '503 Service Unavailable'</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Finished downloads"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Finished downloads"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Finished downloads</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>end.time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>time.taken <span class="ot">&lt;-</span> end.time <span class="sc">-</span> start.time</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>time.taken</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>end.time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>time.taken <span class="ot">&lt;-</span> end.time <span class="sc">-</span> start.time</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>time.taken</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 19.04912 secs</code></pre>
+<pre><code>Time difference of 21.28718 secs</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Result</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Result</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "Failed to download: https://www.govinfo.gov/content/pkg/BILLS-118sres890is/pdf/BILLS-118sres890is.pdf"             
  [2] "Successfully downloaded: https://www.govinfo.gov/content/pkg/BILLS-118sjres114is/pdf/BILLS-118sjres114is.pdf"      
  [3] "Successfully downloaded: https://www.govinfo.gov/content/pkg/BILLS-118sres805ats/pdf/BILLS-118sres805ats.pdf"      
- [4] "Failed to download: https://www.govinfo.gov/content/pkg/BILLS-118sjres115is/pdf/BILLS-118sjres115is.pdf"           
+ [4] "Successfully downloaded: https://www.govinfo.gov/content/pkg/BILLS-118sjres115is/pdf/BILLS-118sjres115is.pdf"      
  [5] "Successfully downloaded: https://www.govinfo.gov/content/pkg/BILLS-118sjres113is/pdf/BILLS-118sjres113is.pdf"      
  [6] "Successfully downloaded: https://www.govinfo.gov/content/pkg/BILLS-118sjres111is/pdf/BILLS-118sjres111is.pdf"      
- [7] "Failed to download: https://www.govinfo.gov/content/pkg/BILLS-118sjres112is/pdf/BILLS-118sjres112is.pdf"           
+ [7] "Successfully downloaded: https://www.govinfo.gov/content/pkg/BILLS-118sjres112is/pdf/BILLS-118sjres112is.pdf"      
  [8] "Successfully downloaded: https://www.govinfo.gov/content/pkg/CREC-2024-09-25/pdf/CREC-2024-09-25-pt1-PgD951.pdf"   
  [9] "Successfully downloaded: https://www.govinfo.gov/content/pkg/CREC-2024-09-25/pdf/CREC-2024-09-25-pt1-PgS6417-2.pdf"
 [10] "Successfully downloaded: https://www.govinfo.gov/content/pkg/CREC-2024-09-25/pdf/CREC-2024-09-25-pt1-PgS6418.pdf"  </code></pre>
@@ -485,20 +475,20 @@ time.taken<br>
 <section id="report" class="level2">
 <h2 class="anchored" data-anchor-id="report">2. Report</h2>
 <p><br>
-<strong>1). Difficulties</strong><br>
+<strong>1) Difficulties</strong><br>
 <br>
 During the scraping process for government documents from GovInfo.gov, I encountered several challenges.<br>
 The GovInfo site did not provide options to download search results in CSV or JSON formats directly from the search page. This broke the expected workflow in the assignment, which relies on metadata files to identify and download documents programmatically.<br>
 Thus, I had to manually download PDF files. This made the process time-consuming and error-prone.<br>
 Sample metadata from GitHub was outdated and did not match the documents I downloaded. Because of this, matching file names to metadata for analysis failed, which limited my ability to annotate or summarize the documents meaningfully.<br>
 <br>
-<strong>2). How useable the scraped data?</strong><br>
+<strong>2) How useable the scraped data?</strong><br>
 <br>
 Even though I was able to download 10 recent documents related to the Foreign Relations Committee, the data was in PDF format, which is difficult to process without extracting the text. The lack of metadata information (such as titles, dates, and summaries) made it difficult to filter, organize, or analyze the documents systematically.<br>
 Overall, the scraped data is partially usable but not ideal for structured analysis without additional manual processing.</p>
 <p><br>
 <br>
-<strong>3). How to improve?</strong><br>
+<strong>3) How to improve?</strong><br>
 Even if the website do not provide a CSV or JSON download, I can build a simple metadata table in R. Use file names, inferred dates, and keywords extracted from the text to organize and annotate the documents.<br>
 </p>
 
