@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://solb-kim.github.io/index.html</loc>
-    <lastmod>2026-08-31T22:01:58.422Z</lastmod>
+    <lastmod>2026-10-04T23:32:45.397Z</lastmod>
   </url>
   <url>
     <loc>https://solb-kim.github.io/course-notes.html</loc>
-    <lastmod>2026-09-30T19:36:54.218Z</lastmod>
+    <lastmod>2026-10-04T23:13:04.336Z</lastmod>
   </url>
   <url>
     <loc>https://solb-kim.github.io/assignments/assign05.html</loc>
@@ -43,5 +43,9 @@
   <url>
     <loc>https://solb-kim.github.io/assignments/EPPS6356_assign02.html</loc>
     <lastmod>2026-09-30T19:44:42.074Z</lastmod>
+  </url>
+  <url>
+    <loc>https://solb-kim.github.io/assignments/EPPS6356_assign03.html</loc>
+    <lastmod>2026-10-04T23:08:24.429Z</lastmod>
   </url>
 </urlset>
