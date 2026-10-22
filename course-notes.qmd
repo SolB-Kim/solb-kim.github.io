@@ -36,6 +36,6 @@ toc-location: left
 - [Assignment 03. Anatomy of a Chart](assignments/EPPS6356_assign03.html)
 - [Assignment 04. 48-Hour Chart Hackathon (Team Project)](https://solb-kim.github.io/epps6356-hackathon/)
 - [Assignment 05. Base Graphics, ggplot2 & Output Formats](assignments/EPPS6356_assign05.qmd)
-- [Assignment 06. Shiny](assignments/epps6356_assign06.qmd)
+- [Assignment 06. Shiny](assignments/EPPS6356_assign06.qmd)
 
 
